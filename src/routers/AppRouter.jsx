@@ -8,38 +8,32 @@ import {HomePage} from '../pages/HomePage';
 import {UserRouter} from '../routers/UserRouter'
 import {UserPage} from '../auth/pages/UserPage';
 import {AdminRouter} from '../routers/AdminRouter'
-import {Footer} from '../components/Footer';
 //useSelector para comprobar si el usuario ha sido autentificado
 import { useSelector } from 'react-redux';
 //Hooks
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 export const AppRouter = () => {
 
   const auth = useSelector(state=>state.auth)
   console.log(auth);
 
-  
-
-
-  const rol = 'admin' || 'standar';
-  const nickname = 'nickname';
+  // const rol = 'admin' || 'standar';
+  // const nickname = 'nickname';
   return (
     <>
-    <NavBar/>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/:nickname" element={<UserPage />}></Route>
         <Route path="/sign" element={<SignPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
         {
-          (rol === 'standar') && <Route path='/*' element={<UserRouter />}></Route>
+          (auth.rol === 'standar') && <Route path='/standard/*' element={<UserRouter />}></Route>
         }
         {
-          (rol === 'admin') && <Route path='/*' element={<AdminRouter />}></Route>
+          (auth.rol === 'admin') && <Route path='/*' element={<AdminRouter />}></Route>
         }
       </Routes>
-      <Footer/>
     </>
   );
 };

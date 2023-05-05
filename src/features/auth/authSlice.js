@@ -6,6 +6,7 @@ const initialState=
     nickname:undefined,    
     isAuthenticated:false,
     token:undefined,
+    rol:undefined,
     msg:undefined
 };
 
@@ -18,6 +19,7 @@ export const authSlice = createSlice({
             state.nickname=action.payload.nickname;
             state.isAuthenticated=action.payload.ok;
             state.token=action.payload.token;
+            state.rol=action.payload.rol;
             state.msg=action.payload.msg;
         },
         logout: (state,action)=>{
