@@ -1,28 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
-import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth'
-    //serializador de formularios, convierte en objeto lo que salga del formulario
+//serializador de formularios, convierte en objeto lo que salga del formulario
 import { serializerForm } from '../../helpers/serializer/serializerForm'
 
 export const LoginForm = () => {
 
-    const {useLogIn,useLogOut}=useAuth();
-    const handleSubmit=(ev)=>{
+    const { useLogIn, useLogOut } = useAuth();
+    const navigate = useNavigate();
+
+    const handleSubmit = (ev) => {
         ev.preventDefault();
-        const dataLog=serializerForm(ev.target);
+        const dataLog = serializerForm(ev.target);
         console.log(dataLog)
         useLogIn(dataLog);
         //puede recibir un mensaje de credenciales incorrectos o de Welcome +nickname! y segun si esta bien o mal un ok:true o un ok:false
-        
+
     }
-    const auth = useSelector(state=>state.auth)
+    const auth = useSelector(state => state.auth)
     console.log(auth)
-    // useEffect(() => { 
-         
-    //   }, [auth]);
+    if (auth.isAuthenticated) {
+        const { nickname } = auth;
+        navigate(`/standard/profile/${nickname}`);
+    }
 
     return (
         <>
@@ -30,7 +33,7 @@ export const LoginForm = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <h3 className="py-6">Publica tus trabajos y descubre nuevas oportunidades en nuestra comunidad.</h3>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form className="card-body" onSubmit={handleSubmit}>
@@ -48,12 +51,12 @@ export const LoginForm = () => {
                                 <label className="label">
                                     <Link to="/sign" className="label-text-alt link link-hover">are you not registered?</Link>
                                 </label>
-                                {(!auth.isAuthenticated)&& <label className="label-text-alt text-red-500">{auth.msg}</label>}
+                                {(!auth.isAuthenticated) && <label className="label-text-alt text-red-500">{auth.msg}</label>}
 
                             </div>
                             <div className="form-control mt-6">
-                                <input type="submit" className="btn btn-accent" value="Login"/>
-                            
+                                <input type="submit" className="btn btn-accent" value="Login" />
+
                             </div>
                         </form>
                     </div>
