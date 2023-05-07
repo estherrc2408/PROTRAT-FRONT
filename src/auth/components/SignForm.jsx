@@ -1,12 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import{serializerForm} from '../../helpers/serializer/serializerForm'
 import {useAuth} from '../hooks/useAuth'
 
 export const SignForm = () => {
 
-  const {useSign} = useAuth()
+  const {useSign} = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -14,8 +17,13 @@ export const SignForm = () => {
     console.log(dataForm);
     useSign(dataForm);
     //puede recibir un mensaje de credenciales incorrectos o de Welcome +nickname! y segun si esta bien o mal un ok:true o un ok:false
+  }
+  const auth = useSelector(state => state.auth)
 
-}
+  if (auth.isAuthenticated) {
+    navigate(`/login`);
+  }
+
 
   return (
     <>
@@ -66,7 +74,7 @@ export const SignForm = () => {
                     <label className="label">
                             <Link to="/login" className="label-text-alt link link-hover">are you registered?</Link>
                         </label>
-                    {/* {(!auth.isAuthenticated) && <label className="label-text-alt text-red-500">{auth.msg}</label>} */}
+                    {(!auth.isAuthenticated) && <label className="label-text-alt text-red-500">{auth.msg}</label>}
                     <div className="form-control mt-6">
                         <input type="submit" className="btn btn-accent" value="Sign" />
 

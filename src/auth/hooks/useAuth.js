@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
-import { login } from '../../features/auth/authSlice'
+import { login,sign } from '../../features/auth/authSlice'
 import { fetchApi } from "../../api/fetchProtrat";
 import { localStorageFunctions } from "../../helpers/localStorage/localStorage";
-import { useSelector } from "react-redux";
 
 export const useAuth = () => {
 
@@ -45,15 +44,16 @@ export const useAuth = () => {
     };
     const useLogOut = () => {
 
-    }
+    };
     const useSign = async (dataForm) => {
         try {
-            const response = await fetchApi("/api/users/", "POST", dataForm)
+            const response = await fetchApi("/api/users/", "POST", dataForm);
+            dispatch(sign(response));
 
             //lo suyo es tener el token el el local y guardarlo con su nickname e id, el estado completo. 
             if (response.ok) {
                 console.log(response);
-
+            
                 return {
                     msg: response.msg,
                     ok: response.ok

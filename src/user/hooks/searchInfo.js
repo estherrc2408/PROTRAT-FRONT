@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import {fetchApi} from "../../api/fetchProtrat"
 import { useDispatch } from "react-redux";
+import { takeInfo } from "../../features/user/userSlice";
+// import {takeInfo} from '../../features/user/userSlice'
 
-export const useFetch = () =>{
+export const searchProfile = () => {
     const [isLoading,setIsLoading]=useState(true);
     const dispatch = useDispatch();
 
-    const getData = async (url,method,data,reducer) => {
+    const putUser = async (url,method,data) => {
         try {
-            const response = await fetchApi(url,method,data)
+            const response = await fetchApi(url,method,data);
             console.log(response)
             if(response.ok){
                 const data=response.data.shift();
                 console.log(data);
-                dispatch(reducer(data));
+                dispatch(takeInfo(data));
             }
         } catch (error) {
             return error
@@ -23,12 +23,14 @@ export const useFetch = () =>{
     }
 
     useEffect(()=>{
-        setIsLoading(true);
-        getData()
+        isLoading(true);
+        putUser()
       },[])
 
     return{
-        getData,
+        putUser,
         isLoading
     }
+
+
 }

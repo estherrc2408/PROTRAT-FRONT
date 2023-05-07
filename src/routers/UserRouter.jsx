@@ -5,20 +5,41 @@ import { ProfilePage } from '../user/pages/ProfilePage';
 import { ProjectPage } from '../user/pages/ProjectPage';
 import { SearchPage } from '../user/pages/SearchPage';
 import { UserFooter } from '../user/components/UserFooter';
-import {localStorageFunctions} from '../helpers/localStorage/localStorage'
+import {localStorageFunctions} from '../helpers/localStorage/localStorage';
+import { useSelector,useDispatch } from "react-redux";
+// import { useNavigate } from 'react-router-dom';
+import { login } from '../features/auth/authSlice'
+import { fetchApi } from '../api/fetchProtrat';
 
 
 export const UserRouter = () => {
+    // const navigate = useNavigate();
+    const dispatch = useDispatch();
 
 
 const validateToken = () =>{
+    const {getLocal}=localStorageFunctions;
     const localInfo=getLocal();
-    console.log(localInfo);
+    dispatch(login(localInfo));
 
 }
 
-useEffect(()=>{
+// const tokenComparer = async(data) =>{
+//     const response = await fetchApi("/api/login", "POST", data);
+    
+//     console.log(response.token);
+//     console.log(token);
+//     if(response.token==token){
 
+//         dispatch(login(response));
+//     }else{
+//         // navigate(`/login`);
+//     }
+
+// }
+
+useEffect(()=>{
+validateToken();
 },[])
 
 

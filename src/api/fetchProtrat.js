@@ -1,6 +1,7 @@
 export const fetchApi = async (path, method, body) => {
     let options = {};
     let url=`http://localhost:3000${path}`;
+    console.log(url,method,body)
     try {
       if (method == "PUT" || method == "POST") {
 
@@ -17,8 +18,12 @@ export const fetchApi = async (path, method, body) => {
   
       } else if (method == "DELETE") options = { method };
   
-
+      console.log(options)
       const request = await fetch(url, options);
+      
+      if (!request.ok) {
+        throw new Error(`Error en la petición: ${request.status}`);
+      }
       const response = await request.json();
       console.log(response);
   
@@ -30,10 +35,12 @@ export const fetchApi = async (path, method, body) => {
         };
       }
       
+      
 
       return response;
   
     } catch (e) {
+      console.log(e)
       console.log("Error obteniendo data", e);
       return {
         ok: false,

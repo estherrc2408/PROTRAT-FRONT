@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth'
 //serializador de formularios, convierte en objeto lo que salga del formulario
@@ -9,7 +9,7 @@ import { serializerForm } from '../../helpers/serializer/serializerForm'
 
 export const LoginForm = () => {
 
-    const { useLogIn, useLogOut } = useAuth();
+    const { useLogIn } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = (ev) => {

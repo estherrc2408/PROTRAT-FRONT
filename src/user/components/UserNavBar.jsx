@@ -1,10 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 export const UserNavBar = () => {
+
+  const auth = useSelector(state => state.auth);
+  const {msg} = auth;
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">{msg}</a>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
