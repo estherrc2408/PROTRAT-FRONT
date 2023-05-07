@@ -3,6 +3,7 @@ import { UserNavBar } from '../user/components/UserNavBar'
 import { Route, Routes } from 'react-router-dom';
 import { ProfilePage } from '../user/pages/ProfilePage';
 import { ProjectPage } from '../user/pages/ProjectPage';
+import { EditProfilePage } from '../user/pages/EditProfilePage';
 import { SearchPage } from '../user/pages/SearchPage';
 import { UserFooter } from '../user/components/UserFooter';
 import {localStorageFunctions} from '../helpers/localStorage/localStorage';
@@ -49,6 +50,7 @@ validateToken();
             <main>
                 <Routes>
                     <Route path='/profile/:nickname' element={<ProfilePage />}></Route>
+                    <Route path='/profile/:nickname/edit' element={<EditProfilePage/>}></Route>
                     <Route path='/project/:idproject' element={<ProjectPage />}></Route>
                     <Route path='/' element={<SearchPage />}></Route>
                 </Routes>

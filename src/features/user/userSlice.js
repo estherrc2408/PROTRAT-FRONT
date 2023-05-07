@@ -4,6 +4,7 @@ const initialState=
 {
     iduser:undefined,
     email:undefined,
+    nickname:undefined,
     first_name:undefined,
     last_name:undefined,
     birth_date:undefined,
@@ -24,6 +25,7 @@ export const userSlice = createSlice({
         takeInfo:(state,action)=>{
             state.iduser=action.payload.iduser;
             state.email=action.payload.email;
+            state.nickname=action.payload.nickname;
             state.first_name=action.payload.first_name;
             state.last_name=action.payload.last_name;
             state.birth_date=action.payload.birth_date;
