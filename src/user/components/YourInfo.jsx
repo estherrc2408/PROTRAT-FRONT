@@ -11,8 +11,8 @@ import { useFetch } from '../hooks/useFetch';
 export const YourInfo = () => {
     //hallar datos user por nickname
     const { nickname } = useParams();
-    const path = useParams();
-    console.log(path)
+    // const path = useParams();
+    // console.log(path)
     const { getData, isLoading } = useFetch();
     const navigate=useNavigate();
 
