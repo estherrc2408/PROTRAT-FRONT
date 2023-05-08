@@ -20,7 +20,7 @@ export const EditProfilePage = () => {
         ev.preventDefault();
         const dataForm = serializerForm(ev.target);
         console.log(dataForm)
-        editForm(dataForm, userInfo.iduser, takeInfo);
+        editForm('/api/users',dataForm, userInfo.iduser, takeInfo);
         //puede recibir un mensaje de credenciales incorrectos o de Welcome +nickname! y segun si esta bien o mal un ok:true o un ok:false
         
     };
@@ -121,7 +121,6 @@ export const EditProfilePage = () => {
                 </div>
                 <div className="form-control mt-6">
                     <input type="submit" className="btn btn-accent" value="EDIT" />
-
                 </div>
 
             </form>

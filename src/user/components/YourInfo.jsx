@@ -11,8 +11,8 @@ import { useFetch } from '../hooks/useFetch';
 export const YourInfo = () => {
     //hallar datos user por nickname
     const { nickname } = useParams();
-    const path = useParams();
-    console.log(path)
+    // const path = useParams();
+    // console.log(path)
     const { getData, isLoading } = useFetch();
     const navigate=useNavigate();
 
@@ -23,9 +23,15 @@ export const YourInfo = () => {
         navigate(`edit`)
     }
 
+    const loader = () =>{
+        getData(`/api/users/nickname/${nickname}`, 'GET', {}, takeInfo)
+        console.log('wn carga ',isLoading)
+    }
+
+
 
     useEffect(() => {
-        getData(`/api/users/nickname/${nickname}`, 'GET', {}, takeInfo)
+        loader()
     }, [])
 
 

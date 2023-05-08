@@ -8,7 +8,7 @@ export const AdminRouter = () => {
     <NavBar/>
     <main>
     <Routes>
-        <Route path='/admin/' element={<AdminHomePage/>}></Route>
+        <Route path='/list' element={<AdminHomePage/>}></Route>
         {/* <Route path='/' element={<SearchPage/>}></Route> */}
     </Routes>
     </main>

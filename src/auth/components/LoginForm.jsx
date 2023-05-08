@@ -23,8 +23,12 @@ export const LoginForm = () => {
     const auth = useSelector(state => state.auth)
     console.log(auth)
     if (auth.isAuthenticated) {
-        const { nickname } = auth;
+        const { nickname,rol } = auth;
+        if(rol=='standar'){
         navigate(`/standard/profile/${nickname}`);
+        }else if(rol=='admin'){
+            navigate(`/admin/list`);
+        }
     }
 
     return (

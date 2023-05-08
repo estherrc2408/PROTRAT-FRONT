@@ -11,6 +11,8 @@ import { useSelector,useDispatch } from "react-redux";
 // import { useNavigate } from 'react-router-dom';
 import { login } from '../features/auth/authSlice'
 import { fetchApi } from '../api/fetchProtrat';
+import { EditProjectPage } from '../user/pages/EditProjectPage';
+
 
 
 export const UserRouter = () => {
@@ -51,7 +53,8 @@ validateToken();
                 <Routes>
                     <Route path='/profile/:nickname' element={<ProfilePage />}></Route>
                     <Route path='/profile/:nickname/edit' element={<EditProfilePage/>}></Route>
-                    <Route path='/project/:idproject' element={<ProjectPage />}></Route>
+                    <Route path='/profile/:nickname/:idproject' element={<ProjectPage />}></Route>
+                    <Route path='/profile/:nickname/:idproject/edit' element={<EditProjectPage/>}></Route>
                     <Route path='/' element={<SearchPage />}></Route>
                 </Routes>
             </main>
