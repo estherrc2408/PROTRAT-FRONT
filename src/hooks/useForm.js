@@ -29,13 +29,13 @@ export const useForm = (initialState) => {
     // };
 
     //editForm
-    const editForm = async (dataForm, id, reducer) => {
+    const editForm = async (path, dataForm, id, reducer) => {
         try {
-            const response = await fetchApi(`/api/users/${id}`, "PUT", dataForm);
+            const response = await fetchApi(`${path}/${id}`, "PUT", dataForm);
 
             if (response.ok) {
                 console.log(response);
-                dispatch(reducer(response));
+                // dispatch(reducer(response));
 
                 navigate(-1);
 

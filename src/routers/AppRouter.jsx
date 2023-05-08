@@ -31,7 +31,7 @@ export const AppRouter = () => {
           (auth.rol === 'standar') && <Route path='/standard/*' element={<UserRouter />}></Route>
         }
         {
-          (auth.rol === 'admin') && <Route path='/*' element={<AdminRouter />}></Route>
+          (auth.rol === 'admin') && <Route path='/admin/*' element={<AdminRouter />}></Route>
         }
       </Routes>
     </>

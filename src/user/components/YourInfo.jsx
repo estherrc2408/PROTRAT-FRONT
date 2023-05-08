@@ -23,9 +23,15 @@ export const YourInfo = () => {
         navigate(`edit`)
     }
 
+    const loader = () =>{
+        getData(`/api/users/nickname/${nickname}`, 'GET', {}, takeInfo)
+        console.log('wn carga ',isLoading)
+    }
+
+
 
     useEffect(() => {
-        getData(`/api/users/nickname/${nickname}`, 'GET', {}, takeInfo)
+        loader()
     }, [])
 
 
