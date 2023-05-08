@@ -1,6 +1,8 @@
 import React from 'react'
+import {Routes,Route} from 'react-router-dom'
 import { NavBar } from '../components/NavBar'
 import { AdminHomePage } from '../admin/pages/AdminHomePage'
+import {Footer} from '../components/Footer'
 
 export const AdminRouter = () => {
   return (
@@ -9,7 +11,6 @@ export const AdminRouter = () => {
     <main>
     <Routes>
         <Route path='/list' element={<AdminHomePage/>}></Route>
-        {/* <Route path='/' element={<SearchPage/>}></Route> */}
     </Routes>
     </main>
     <Footer/>

@@ -66,10 +66,10 @@ export const EditProjectPage = () => {
               <label className="mb-3 block text-base font-medium text-[#07074D]">
                 Principal image
               </label>
-              <input onChange={handleChange}  type="file" name="principal_img" className="w-full"/>
+              <input onChange={handleChange} type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
             </div>
             <div className="form-control mt-6">
-                    <input  onChange={handleChange} type="submit" className="btn btn-accent" value="EDIT" />
+                    <input  type="submit" className="btn btn-accent" value="EDIT" />
             </div>
             
           </form>

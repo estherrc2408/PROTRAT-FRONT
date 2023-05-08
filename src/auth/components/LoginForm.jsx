@@ -24,6 +24,7 @@ export const LoginForm = () => {
     console.log(auth)
     if (auth.isAuthenticated) {
         const { nickname,rol } = auth;
+        console.log(rol)
         if(rol=='standar'){
         navigate(`/standard/profile/${nickname}`);
         }else if(rol=='admin'){

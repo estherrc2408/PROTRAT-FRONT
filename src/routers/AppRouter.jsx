@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 //Elements
 import {LoginPage} from '../auth/pages/LoginPage';
 import {SignPage} from '../auth/pages/SignPage';
-import { NavBar } from '../components/NavBar';
 import {HomePage} from '../pages/HomePage';
 import {UserRouter} from '../routers/UserRouter'
 import {UserPage} from '../auth/pages/UserPage';
