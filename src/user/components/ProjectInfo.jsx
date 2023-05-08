@@ -41,13 +41,13 @@ export const ProjectInfo = () => {
                             <h2 className="py-5 card-title block border-2 border-indigo-600">{`Title: ${project.title} `}</h2>
                             <h3 className="py-5 text-base card-title block border-2 border-indigo-600">{`Subtitle: ${project.subtitle} `}</h3>
                             <p className='p-5 border-2 border-indigo-600'>{`Description: ${project.description}`}</p>
-                            {project.project_date &&
+                            {/* {project.project_date &&
                                 <p className='py-3 border-2 border-indigo-600'>{`Realizado: ${project.project_date.substring(0, 10)}`}</p>
-                            }
+                            } */}
                             {project.location && <p className='py-3 border-2 border-indigo-600'>{`Location: ${project.location}`}</p>}
 
                         </div>
-                        <p className='py-3 text-center border-2 border-indigo-600'>{`Publicado: ${project.publication_project.substring(0, 10)}`}</p>
+                        {/* <p className='py-3 text-center border-2 border-indigo-600'>{`Publicado: ${project.publication_project.substring(0, 10)}`}</p> */}
                     </div>
                     {rol === 'standar' && <Link id={project.idproject} className="btn btn-accent" to="edit">EDIT</Link>}
                 </div>
@@ -59,10 +59,10 @@ export const ProjectInfo = () => {
                         <div className='overflow-hidden container mx-[auto] h-[40vh] w-[250px] border-2 border-indigo-600  md:h-[70%] md:w-[350px] lg:h-[65%] lg:w-[95%] m-8'>
                             <img className="w-[100%] h-[100%] object-cover border-2 border-indigo-600" src={project.principal_img} alt="Album" />
                         </div>
-                        {project.project_date &&
+                        {/* {project.project_date &&
                             <p className='text-xs text-center border-2 border-indigo-600'>{`Realizado: ${project.project_date.substring(0, 10)}`}</p>
-                        }
-                        <p className='py-1 text-xs text-center border-2 border-indigo-600'>{`Publicado: ${project.publication_project.substring(0, 10)}`}</p>
+                        } */}
+                        {/* <p className='py-1 text-xs text-center border-2 border-indigo-600'>{`Publicado: ${project.publication_project.substring(0, 10)}`}</p> */}
                         {project.location && <p className='text-center py- border-2 border-indigo-600'>{`Location: ${project.location}`}</p>}
                     </div>
                     <div className="container py-2.5 w-80% center border-2 border-indigo-600 md:p-6 lg:p-10 xl:px-15 ">

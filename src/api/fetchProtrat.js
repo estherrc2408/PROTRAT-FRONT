@@ -1,7 +1,6 @@
 export const fetchApi = async (path, method, body) => {
     let options = {};
     let url=`http://localhost:3000${path}`;
-    console.log(url,method,body)
     try {
       if (method == "PUT" || method == "POST") {
 

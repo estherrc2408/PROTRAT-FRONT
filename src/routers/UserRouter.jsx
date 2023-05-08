@@ -12,6 +12,8 @@ import { useSelector,useDispatch } from "react-redux";
 import { login } from '../features/auth/authSlice'
 import { fetchApi } from '../api/fetchProtrat';
 import { EditProjectPage } from '../user/pages/EditProjectPage';
+import { CreateProjectPage } from '../user/pages/CreateProjectPage';
+import { DeletePage } from '../user/pages/DeletePage';
 
 
 
@@ -52,9 +54,11 @@ validateToken();
             <main>
                 <Routes>
                     <Route path='/profile/:nickname' element={<ProfilePage />}></Route>
+                    <Route path='/profile/:nickname/create' element={<CreateProjectPage/>}></Route>
                     <Route path='/profile/:nickname/edit' element={<EditProfilePage/>}></Route>
+                    <Route path='/profile/:nickname/delete/:idproject' element={<DeletePage/>}></Route>
                     <Route path='/profile/:nickname/:idproject' element={<ProjectPage />}></Route>
-                    <Route path='/profile/:nickname/:idproject/edit' element={<EditProjectPage/>}></Route>
+                    <Route path='/profile/:nickname/:idproject/edit/' element={<EditProjectPage/>}></Route>
                     <Route path='/' element={<SearchPage />}></Route>
                 </Routes>
             </main>
