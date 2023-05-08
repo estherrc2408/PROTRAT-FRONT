@@ -45,7 +45,7 @@ export const EditProfilePage = () => {
                     <label className="label">
                         <span className="label-text">Foto de perfil</span>
                     </label>
-                    <input type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
+                    <input type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" onChange={handleChange} />
                 </div>
                 <div className="form-control">
                     <label className="label">
