@@ -30,8 +30,8 @@ Los usuarios no registrados podrán acceder a los perfiles de los usuarios stand
 
 ## Usuarios:
 Usuario con rol de administrador:
-**admin@account.com** -rol:admin password: *adminpass*
-**cansada@nppuc.mes** -rol:standard password: *pass*
-**testing@user.com** -rol:standard password:*testpass*
-**new@version.com** -rol:standard password:*newpass**
+1. **admin@account.com** -rol:admin password: *adminpass*
+2. **cansada@nppuc.mes** -rol:standard password: *pass*
+3. **testing@user.com** -rol:standard password:*testpass*
+4. **new@version.com** -rol:standard password:*newpass**
 
